@@ -145,6 +145,29 @@ class MainActivity : AppCompatActivity(), VoiceCommandProcessor.Callbacks {
         binding.btnCopy.setOnClickListener { copyText() }
         binding.btnShare.setOnClickListener { shareText() }
         binding.btnSend.setOnClickListener { sendToIME() }
+
+        binding.btnPunctKuten.setOnClickListener      { insertString("。") }
+        binding.btnPunctToten.setOnClickListener      { insertString("、") }
+        binding.btnPunctQuestion.setOnClickListener   { insertString("？") }
+        binding.btnPunctExclaim.setOnClickListener    { insertString("！") }
+        binding.btnPunctKakkoOpen.setOnClickListener  { insertBracketPair("「", "」") }
+        binding.btnPunctParenOpen.setOnClickListener  { insertBracketPair("（", "）") }
+        binding.btnPunctWave.setOnClickListener       { insertString("〜") }
+        binding.btnPunctMiddleDot.setOnClickListener  { insertString("・") }
+        binding.btnPunctEllipsis.setOnClickListener   { insertString("…") }
+        binding.btnPunctNewline.setOnClickListener    { insertString("\n") }
+        binding.btnPunctSpace.setOnClickListener      { insertString("　") }
+    }
+
+    private fun insertBracketPair(open: String, close: String) {
+        val et = binding.etMain
+        val start = et.selectionStart.coerceAtLeast(0)
+        val end   = et.selectionEnd.coerceAtLeast(0)
+        val selected = if (start < end) et.text.substring(start, end) else ""
+        val insert = open + selected + close
+        et.text.replace(minOf(start, end), maxOf(start, end), insert)
+        et.setSelection(minOf(start, end) + open.length + selected.length)
+        Log.d(TAG, "insertBracketPair: $open$selected$close")
     }
 
     private fun setupMicButton() {

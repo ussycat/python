@@ -21,6 +21,8 @@
     <string name="btn_copy">コピー</string>
     <string name="btn_share">共有</string>
     <string name="btn_send">送信</string>
+    <string name="btn_newline">改行</string>
+    <string name="btn_space">空白</string>
     <string name="toast_copied">コピーしました</string>
     <string name="toast_sent">IMEに送信しました</string>
     <string name="confirm_clear">テキストをすべて削除しますか？</string>
