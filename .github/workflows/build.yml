@@ -8,10 +8,17 @@ on:
     paths:
       - 'edivoice/**'
   workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Deploy to device after build'
+        type: boolean
+        default: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      run-number: ${{ github.run_number }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,3 +48,47 @@ jobs:
           path: edivoice/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
           if-no-files-found: error
+
+  # このジョブは self-hosted runner (Windows PC) が登録されているときだけ動く
+  # 登録方法: https://github.com/ussycat/python/settings/actions/runners
+  deploy:
+    needs: build
+    runs-on: [self-hosted, Windows]
+    # 手動dispatch で deploy=true のときだけ、または vars.AUTO_DEPLOY が 'true' のとき実行
+    if: |
+      (github.event_name == 'workflow_dispatch' && inputs.deploy == true) ||
+      vars.AUTO_DEPLOY == 'true'
+    steps:
+      - name: Download APK
+        uses: actions/download-artifact@v4
+        with:
+          name: edivoice-debug-${{ github.run_number }}
+          path: ./apk
+
+      - name: Connect wireless ADB and install
+        shell: pwsh
+        env:
+          ADB_HOST: ${{ vars.ADB_HOST || '192.168.0.140' }}
+          ADB_PORT: ${{ vars.ADB_PORT || '5555' }}
+        run: |
+          $adb = "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe"
+          if (-not (Test-Path $adb)) { $adb = "adb" }
+
+          Write-Host "Connecting to ${env:ADB_HOST}:${env:ADB_PORT}..."
+          & $adb connect "${env:ADB_HOST}:${env:ADB_PORT}"
+          Start-Sleep -Seconds 3
+
+          $devLine = (& $adb devices) -split "`n" | Where-Object { $_ -match "\tdevice$" }
+          if (-not $devLine) {
+            Write-Error "No ADB device found at ${env:ADB_HOST}:${env:ADB_PORT}"
+            exit 1
+          }
+          Write-Host "Device: $($devLine.Trim())"
+
+          $apk = Get-ChildItem .\apk -Filter "*.apk" | Select-Object -First 1 -ExpandProperty FullName
+          Write-Host "Installing: $apk"
+          & $adb install -r $apk
+          if ($LASTEXITCODE -ne 0) { Write-Error "adb install failed"; exit 1 }
+
+          & $adb shell am start -n "jp.gr.java_conf.sh.edivoice.debug/jp.gr.java_conf.sh.edivoice.MainActivity"
+          Write-Host "=== Deployed and launched ==="
