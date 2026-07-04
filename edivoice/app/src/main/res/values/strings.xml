@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Edivoice</string>
+    <string name="title_settings">設定</string>
+    <string name="title_dictionary">ユーザー辞書</string>
+
+    <!-- Main screen -->
+    <string name="hint_voice_result">ここに音声認識結果が表示されます</string>
+    <string name="interim_placeholder">聞いています…</string>
+    <string name="btn_mic_start">音声入力</string>
+    <string name="btn_mic_stop">停止</string>
+    <string name="btn_left">←</string>
+    <string name="btn_right">→</string>
+    <string name="btn_line_start">|←</string>
+    <string name="btn_line_end">→|</string>
+    <string name="btn_del_char">⌫</string>
+    <string name="btn_del_word">⌫語</string>
+    <string name="btn_clear_all">全削</string>
+    <string name="btn_select_all">全選</string>
+    <string name="btn_undo">元に戻す</string>
+    <string name="btn_copy">コピー</string>
+    <string name="btn_share">共有</string>
+    <string name="btn_send">送信</string>
+    <string name="toast_copied">コピーしました</string>
+    <string name="toast_sent">IMEに送信しました</string>
+    <string name="confirm_clear">テキストをすべて削除しますか？</string>
+    <string name="dialog_candidates">認識候補</string>
+    <string name="menu_settings">設定</string>
+    <string name="menu_dictionary">ユーザー辞書</string>
+
+    <!-- Error messages -->
+    <string name="err_no_match">認識できませんでした</string>
+    <string name="err_timeout">タイムアウト</string>
+    <string name="err_network">ネットワークエラー</string>
+    <string name="err_no_permission">マイクの権限が必要です</string>
+
+    <!-- Settings categories -->
+    <string name="pref_cat_recognition">音声認識</string>
+    <string name="pref_cat_editor">エディタ</string>
+    <string name="pref_cat_output">出力</string>
+    <string name="pref_cat_display">表示</string>
+    <string name="pref_cat_other">その他</string>
+
+    <!-- Settings keys (displayed titles) -->
+    <string name="pref_language_title">認識言語</string>
+    <string name="pref_continuous_title">連続認識モード</string>
+    <string name="pref_auto_insert_title">単一候補の自動挿入</string>
+    <string name="pref_interim_title">途中結果の表示</string>
+    <string name="pref_delimiter_title">区切り文字</string>
+    <string name="pref_silent_title">サウンドなし</string>
+    <string name="pref_prevent_sleep_title">スリープを防ぐ</string>
+    <string name="pref_voice_operation_title">音声操作フィードバック</string>
+    <string name="pref_big_font_title">大きい文字</string>
+    <string name="pref_text_count_title">文字数表示</string>
+    <string name="pref_color_mode_title">カラーモード</string>
+    <string name="pref_clear_confirm_title">削除前に確認</string>
+    <string name="pref_clear_copy_title">削除時にコピー</string>
+    <string name="pref_finish_copy_title">コピー後に終了</string>
+    <string name="pref_prevent_ime_title">キーボードを表示しない</string>
+    <string name="pref_english_space_title">英語用スペース</string>
+    <string name="pref_zenkaku_number_title">全角数字</string>
+    <string name="pref_back_key_title">戻るキーの動作</string>
+    <string name="pref_dictionary_title">ユーザー辞書を使用</string>
+
+    <!-- Dictionary screen -->
+    <string name="dict_add">追加</string>
+    <string name="dict_word_from">認識テキスト（変換前）</string>
+    <string name="dict_word_to">置換テキスト（変換後）</string>
+    <string name="dict_save">保存</string>
+    <string name="dict_cancel">キャンセル</string>
+    <string name="dict_delete_confirm">この単語を削除しますか？</string>
+    <string name="dict_empty">辞書は空です</string>
+    <string name="dict_add_title">単語を追加</string>
+    <string name="dict_edit_title">単語を編集</string>
+    <string name="dict_arrow">→</string>
+</resources>

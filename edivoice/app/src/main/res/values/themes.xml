@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Edivoice" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/primary_light</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+    </style>
+
+    <style name="Theme.Edivoice.BigFont" parent="Theme.Edivoice">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="EditorButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:minWidth">48dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+    </style>
+</resources>

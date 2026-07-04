@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Language -->
+    <string-array name="language_entries">
+        <item>日本語</item>
+        <item>English (US)</item>
+        <item>English (UK)</item>
+        <item>中文（簡体）</item>
+        <item>中文（繁体）</item>
+        <item>한국어</item>
+        <item>Français</item>
+        <item>Deutsch</item>
+        <item>Español</item>
+        <item>Italiano</item>
+        <item>Português</item>
+    </string-array>
+    <string-array name="language_values">
+        <item>ja-JP</item>
+        <item>en-US</item>
+        <item>en-GB</item>
+        <item>zh-CN</item>
+        <item>zh-TW</item>
+        <item>ko-KR</item>
+        <item>fr-FR</item>
+        <item>de-DE</item>
+        <item>es-ES</item>
+        <item>it-IT</item>
+        <item>pt-BR</item>
+    </string-array>
+
+    <!-- Delimiter -->
+    <string-array name="delimiter_entries">
+        <item>なし</item>
+        <item>改行</item>
+        <item>スペース</item>
+    </string-array>
+    <string-array name="delimiter_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Color mode -->
+    <string-array name="color_mode_entries">
+        <item>システム設定に従う</item>
+        <item>ライト</item>
+        <item>ダーク</item>
+    </string-array>
+    <string-array name="color_mode_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Back key -->
+    <string-array name="back_key_entries">
+        <item>認識を停止</item>
+        <item>テキストをクリア</item>
+    </string-array>
+    <string-array name="back_key_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Voice operation feedback -->
+    <string-array name="voice_operation_entries">
+        <item>なし</item>
+        <item>バイブ</item>
+    </string-array>
+    <string-array name="voice_operation_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+</resources>

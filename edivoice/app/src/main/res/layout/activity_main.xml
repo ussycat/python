@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Interim / partial recognition text -->
+        <TextView
+            android:id="@+id/tvInterim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="32dp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:textColor="@color/interim_text"
+            android:textStyle="italic"
+            android:fontFamily="sans-serif"
+            android:text=""/>
+
+        <!-- Main editable text area -->
+        <EditText
+            android:id="@+id/etMain"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top|start"
+            android:hint="@string/hint_voice_result"
+            android:inputType="textMultiLine|textCapSentences"
+            android:background="@null"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:minLines="4"
+            android:scrollbars="vertical"/>
+
+        <!-- Character count (hidden by default) -->
+        <TextView
+            android:id="@+id/tvCharCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:paddingEnd="8dp"
+            android:textSize="12sp"
+            android:textColor="?android:attr/textColorSecondary"
+            android:visibility="gone"/>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            android:layout_marginVertical="4dp"/>
+
+        <!-- Cursor / delete button row -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLeft"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_left"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRight"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_right"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLineStart"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_line_start"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLineEnd"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_line_end"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDelChar"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_del_char"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDelWord"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_del_word"/>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Action button row -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnClearAll"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_clear_all"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSelectAll"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_select_all"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnUndo"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_undo"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCopy"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_copy"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShare"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_share"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSend"
+                    style="@style/EditorButton"
+                    android:text="@string/btn_send"/>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Mic button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="12dp">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabMic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_mic_start"
+                app:icon="@drawable/ic_mic"
+                android:backgroundTint="@color/mic_inactive"
+                android:textColor="@android:color/white"
+                app:iconTint="@android:color/white"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

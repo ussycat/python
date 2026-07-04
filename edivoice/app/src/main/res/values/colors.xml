@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#1565C0</color>
+    <color name="primary_dark">#003c8f</color>
+    <color name="primary_light">#5e92f3</color>
+    <color name="mic_active">#C62828</color>
+    <color name="mic_inactive">#1565C0</color>
+    <color name="interim_text">#888888</color>
+    <color name="button_editor_bg">#E3F2FD</color>
+    <color name="button_editor_bg_dark">#1A2A3A</color>
+</resources>

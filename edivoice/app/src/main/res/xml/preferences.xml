@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/pref_cat_recognition">
+
+        <ListPreference
+            app:key="language"
+            app:title="@string/pref_language_title"
+            app:entries="@array/language_entries"
+            app:entryValues="@array/language_values"
+            app:defaultValue="ja-JP"
+            app:useSimpleSummaryProvider="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="continuous_mode"
+            app:title="@string/pref_continuous_title"
+            app:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            app:key="auto_insert"
+            app:title="@string/pref_auto_insert_title"
+            app:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="interim_speech"
+            app:title="@string/pref_interim_title"
+            app:defaultValue="true"/>
+
+        <ListPreference
+            app:key="delimiter"
+            app:title="@string/pref_delimiter_title"
+            app:entries="@array/delimiter_entries"
+            app:entryValues="@array/delimiter_values"
+            app:defaultValue="0"
+            app:useSimpleSummaryProvider="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="silent_mode"
+            app:title="@string/pref_silent_title"
+            app:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            app:key="prevent_sleep"
+            app:title="@string/pref_prevent_sleep_title"
+            app:defaultValue="false"/>
+
+        <ListPreference
+            app:key="voice_operation"
+            app:title="@string/pref_voice_operation_title"
+            app:entries="@array/voice_operation_entries"
+            app:entryValues="@array/voice_operation_values"
+            app:defaultValue="0"
+            app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_cat_editor">
+
+        <SwitchPreferenceCompat
+            app:key="prevent_ime"
+            app:title="@string/pref_prevent_ime_title"
+            app:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="clear_confirm"
+            app:title="@string/pref_clear_confirm_title"
+            app:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="clear_copy"
+            app:title="@string/pref_clear_copy_title"
+            app:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            app:key="english_space"
+            app:title="@string/pref_english_space_title"
+            app:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            app:key="zenkaku_number"
+            app:title="@string/pref_zenkaku_number_title"
+            app:defaultValue="false"/>
+
+        <ListPreference
+            app:key="back_key"
+            app:title="@string/pref_back_key_title"
+            app:entries="@array/back_key_entries"
+            app:entryValues="@array/back_key_values"
+            app:defaultValue="0"
+            app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_cat_output">
+
+        <SwitchPreferenceCompat
+            app:key="finish_copy"
+            app:title="@string/pref_finish_copy_title"
+            app:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            app:key="dictionary_key"
+            app:title="@string/pref_dictionary_title"
+            app:defaultValue="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_cat_display">
+
+        <ListPreference
+            app:key="color_mode"
+            app:title="@string/pref_color_mode_title"
+            app:entries="@array/color_mode_entries"
+            app:entryValues="@array/color_mode_values"
+            app:defaultValue="0"
+            app:useSimpleSummaryProvider="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="big_font"
+            app:title="@string/pref_big_font_title"
+            app:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            app:key="text_count"
+            app:title="@string/pref_text_count_title"
+            app:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,2 @@
+-keep class jp.gr.java_conf.sh.edivoice.db.** { *; }
+-keepclassmembers class * extends androidx.room.RoomDatabase { *; }
